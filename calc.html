@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Document</title>
+</head>
+
+<body>
+    <input type="text" id="first" />
+    <input type="text" id="second" />
+    <button id="add">Add</button>
+    <button id="subtract">Subtract</button>
+    <button id="divide">Divide</button>
+    <button id="multiply">Multiply</button>
+    <h1 id="https" style="font-family: Bahnschrift"></h1>
+    <script>
+        var add = document.getElementById("add");
+        var subtract = document.getElementById("subtract");
+        var divide = document.getElementById("divide");
+        var multiply = document.getElementById("multiply");
+        var h1 = document.getElementById("https");
+        function Calculate() {
+            var first;
+            var second;
+            first = document.getElementById("first");
+            second = document.getElementById("second");
+        }
+        add.addEventListener('click', function () {
+         Calculate();
+         console.log(first + second);
+        });
+        subtract.addEventListener('click', function () {
+         Calculate();
+         console.log(first - second);
+        });
+        divide.addEventListener('click', function () {
+         Calculate();
+         console.log(first / second);
+        });
+        multiply.addEventListener('click', function () {
+         Calculate();
+         console.log(first * second);
+        });
+    </script>
+</body>
+
+</html>

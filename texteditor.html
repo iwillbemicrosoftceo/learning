@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="text">Text</label>
+    <label for="fname">File Name</label>
+ <textarea id="textarea" rows="20" cols="50" name="text"></textarea>
+ <textarea id="name" rows="6" cols="10" name="fname"></textarea>
+ <button id="button">Download The Text</button>
+ <script>
+ var button = document.getElementById("button");
+ button.addEventListener('click', function(){
+var textareatext = document.getElementById("textarea").value;
+ });
+ </script>   
+</body>
+</html>
