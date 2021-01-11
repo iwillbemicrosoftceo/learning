@@ -10,8 +10,14 @@
 <input type="text" name="name" id="txtTransform" placeholder="Type here" onchange="GenerateBar()" />
 <hr />
 <!--Generate svg-->
-<svg id="barcode" jsbarcode-fontoptions="bold"></svg>
+<img id="barcode" jsbarcode-fontoptions="bold" alt="barcode" />
 <script type="text/javascript">
+    function CopyBarcode() {
+        var img = document.getElementById("barcode");
+        img.select();
+        document.execCommand("copy");
+  
+    }
 function GenerateBar(){
     var txt = document.getElementById("txtTransform").value;
 JsBarcode("#barcode", txt, {
