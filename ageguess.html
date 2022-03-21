@@ -20,9 +20,9 @@
         var age = document.getElementById("age");
         var base = new Date();
         var year = base.getFullYear();
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', () => {
 
-  document.getElementById("thepooper").innerText = year - age.value;  
+            document.getElementById("thepooper").innerText = year - age.value;  
 
         });
     </script>
