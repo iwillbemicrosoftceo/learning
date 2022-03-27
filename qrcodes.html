@@ -14,7 +14,7 @@
         button.addEventListener("click",function(){
             let data = input.value;
             if(data.length > 0){
-                let imgSrc = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data="+data;
+                let imgSrc = "https://chart.googleapis.com/chart?cht=qr&chs=200x200&chl="+data;
                 qrImg.src = imgSrc;
             }
         })
