@@ -1,49 +1,138 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<!-- Calculator HTML -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Document</title>
-</head>
+    <title>Calculator</title>
+    <!-- <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script> -->
+    <style>
+    #display {
+        cursor: default;
+        width: 100%;
+        padding: 20px;
+        font-size: 5rem;
+        text-align: left;
+        border: none;
+        background-color: hsl(0, 0%, 20%);
+        color: #fff;
+    }
+    button {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        border: none;
+        background-color: hsl(0, 0%, 30%);
+        color: #fff;
+        font-size: 3rem;
+        font-weight: bold;
+        cursor: pointer;
+    }
+    #keys {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding: 25px;
+    }
+    #calculator {
+        font-family: Arial, sans-serif;
+        background-color: hsl(0, 0%, 15%);
+        border-radius: 15px;
+        max-width: 500px;
+        overflow: hidden;
+    }
+    body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    button:hover {
+        background-color: hsl(0, 0%, 40%);
+    }
+    button:active {
+        background-color: hsl(0, 0%, 50%);
+    }
+    .operator { 
+        background-color: hsl(39, 100%, 50%);
+    }
+    .operator:hover {
+        background-color: hsl(39, 100%, 65%);
+    }
+    .operator:active {
+        background-color: hsl(39, 100%, 75%);
+    }
+    .copy {
+        font-size: 2rem;
+    }
+    </style>
+    <script defer>
+        const display = document.getElementById('display');
+        const body = document.getElementById("body")
 
-<body>
-    <input type="text" id="first" />
-    <input type="text" id="second" />
-    <button id="add">Add</button>
-    <button id="subtract">Subtract</button>
-    <button id="divide">Divide</button>
-    <button id="multiply">Multiply</button>
-    <h1 id="https" style="font-family: Bahnschrift"></h1>
-    <script>
-        var add = document.getElementById("add");
-        var subtract = document.getElementById("subtract");
-        var divide = document.getElementById("divide");
-        var multiply = document.getElementById("multiply");
-        var h1 = document.getElementById("https");
-        function Calculate() {
-            var first;
-            var second;
-            first = document.getElementById("first");
-            second = document.getElementById("second");
+        function appendToDisplay(input) {
+            display.value += input;
         }
-        add.addEventListener('click', function () {
-         Calculate();
-         console.log(first + second);
-        });
-        subtract.addEventListener('click', function () {
-         Calculate();
-         console.log(first - second);
-        });
-        divide.addEventListener('click', function () {
-         Calculate();
-         console.log(first / second);
-        });
-        multiply.addEventListener('click', function () {
-         Calculate();
-         console.log(first * second);
-        });
-    </script>
-</body>
 
-</html>
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculate() {
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                display.value = '';
+                alert(error.message);
+            }
+            
+        }
+        function change(mode) {
+            if (mode == "light") body.style.backgroundColor = "#fff"
+            else if (mode == "dark") body.style.backgroundColor = "#000"
+        }
+        function copyDisplay() {
+            // Get the text field
+        
+            // Select the text field
+            display.select();
+            display.setSelectionRange(0, 99999); // For mobile devices
+        
+            // Copy the text inside the text field
+            navigator.clipboard.writeText(display.value);
+        
+            // Alert the copied text
+            alert("Copied the text: " + display.value);
+        }
+    </script>
+ </head>
+ <body id="body">
+    <div id="calculator">
+        <input id="display" readonly />
+        <div id="keys">
+            <button onclick="appendToDisplay('+')" class="operator">+</button>
+            <button onclick="appendToDisplay('7')">7</button>
+            <button onclick="appendToDisplay('8')">8</button>
+            <button onclick="appendToDisplay('9')">9</button>
+            <button onclick="appendToDisplay('-')" class="operator">-</button>
+            <button onclick="appendToDisplay('4')">4</button>
+            <button onclick="appendToDisplay('5')">5</button>
+            <button onclick="appendToDisplay('6')">6</button>
+            <button onclick="appendToDisplay('*')" class="operator">×</button>
+            <button onclick="appendToDisplay('1')">1</button>
+            <button onclick="appendToDisplay('2')">2</button>
+            <button onclick="appendToDisplay('3')">3</button>
+            <button onclick="appendToDisplay('/')" class="operator">÷</button>
+            <button onclick="appendToDisplay('0')">0</button>
+            <button onclick="appendToDisplay('.')">.</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="clearDisplay()" class="operator">C</button>
+            <button onclick="change('light')"><img src="lightbulb-fill.svg" alt="Light Mode"></i></button>
+            <button onclick="change('dark')"><img src="lightbulb-off.svg" alt="Dark Mode"></i></button>
+            <button onclick="copyDisplay()" class="copy">Copy</button>
+        </div>
+    </div>
+ </body>
+ </html>
