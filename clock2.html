@@ -5,11 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analog Clock</title>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <style>
+      .clock {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      body {
+        height: 100vh;
+      }
+    </style>
 </head>
 <body>
-    <canvas id="canvas" width="400" height="400"
-    style="background-color:#fff">
-    </canvas>
+    
+    <div class="clock"><canvas id="canvas" width="400" height="400"
+    style="background-color:#fff"></canvas></div>
     
     <script>
     var canvas = document.getElementById("canvas");
